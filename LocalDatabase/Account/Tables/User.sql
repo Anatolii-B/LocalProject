@@ -1,0 +1,10 @@
+﻿CREATE TABLE [acc].[User]
+(
+	[Id] INT NOT NULL,
+	[FirstName] NVARCHAR(64) NOT NULL,
+	[LastName] NVARCHAR(64) NOT NULL,
+	[Age] INT,
+	[Email] NVARCHAR (128) NOT NULL,
+	[Password] NVARCHAR (128) NOT NULL,
+	CONSTRAINT [PK_User_Id] PRIMARY KEY ([Id])
+)
