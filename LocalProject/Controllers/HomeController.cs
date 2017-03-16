@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LocalProject.Controllers
@@ -9,16 +7,20 @@ namespace LocalProject.Controllers
 	public class HomeController : Controller
 	{
 		// GET: Home
-		public ActionResult Index()
+		public void Index()
 		{
 			List<User> users = new List<User>();
 
 			using (var context = new LocalProjectContext())
 			{
-				users = context.Users.ToList();
+				var user = context.Users.Where(x => x.Id == 1).FirstOrDefault();
+				var itemToRemove = context.Addresses.Where(x => x.Id == 6).FirstOrDefault();
+				user.Addresses.Remove(itemToRemove);
+				context.SaveChanges();
 			}
 
-			return View(users);
+
+			//return View(users);
 		}
 	}
 }
