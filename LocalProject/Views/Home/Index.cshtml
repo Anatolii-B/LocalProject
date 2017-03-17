@@ -1,4 +1,4 @@
-﻿@model ICollection<User>
+﻿@model ICollection<Model.DAO.User>
 <!DOCTYPE html>
 
 <html>
@@ -17,7 +17,7 @@
                 <th>Age</th>
                 <th>Email</th>
             </tr>
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@item.Id</td>
